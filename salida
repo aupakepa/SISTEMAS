@@ -1,3 +1,20 @@
-	find / -type f -name $1 >salida 2>/dev/null
-	if [ ! -s salida ]
-	  then
+#!/bin/sh
+#eje703.sh
+#Script que liste el contenido de un fichero con tres parametros posicionales
+#primero obligatorio nombre fichero Comprobar existencia y permisos si no existe error 1
+#Segundo listar desde esta linea no obligatorio y si no no es necesario 3º parametro
+#listar hasta esta linea
+FICHERO=$1
+LINEAS=`cat $1 | wc -l`
+
+if [ -z $2 ]
+then
+	INICIO=1
+else
+	INICIO=$2
+fi
+if [ -z $3 ]
+then
+	FIN=$LINEAS
+else
+	FIN=$3

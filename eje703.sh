@@ -36,16 +36,16 @@ elif [ ! -r $FICHERO ]
 then
 	echo el usuario no tiene permiso de lectura
 else
-	INICIO=`expr $INICIO - 1`
-	FIN=`expr $LINEAS - $FIN + 1`
+	INICIO=`expr $INICIO`
+	FIN=`expr $LINEAS - $FIN`
 	cat $FICHERO | tail -n +$INICIO | head -n -$FIN 2>/dev/null >salida
 	FICHERO=./salida	
 	CONT=$INICIO
 	while
 		read LINEA
 	do 
-		CONT=`expr $CONT + 1`
-	PLINEA=`echo $CONT .- $LINEA | cut -c1-15`
+	PLINEA=`echo $CONT .- $LINEA | cut -c1-50`
+	CONT=`expr $CONT + 1`
 	echo $PLINEA
 	done < $FICHERO
 fi	
