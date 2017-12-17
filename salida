@@ -1,0 +1,9 @@
+#Se buscara el elemento introducido como parametro posicional y se indicara si existe alguno o no
+if [ $# -eq 0 ]
+then
+	echo no se ha introducido parametros
+	exit 1
+fi
+
+while [ $# -ne 0 ]
+do
