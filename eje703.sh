@@ -14,7 +14,7 @@ then
 	exit 3
 elif [ $2 -gt $LINEAS -o $3 -gt $LINEAS ]
 then
-	echo el inicio de las lineas es mayor que el numero de lineas totales
+	echo el inicio o el fin  es mayor que el numero de lineas totales
 	exit 3
 elif [ ! -s $FICHERO ]
 then
@@ -24,8 +24,8 @@ elif [ ! -r $FICHERO ]
 then
 	echo el usuario no tiene permiso de lectura
 else
-	INICIO=$2
-	FIN=$3
+	INICIO=`expr $2 - 1`
+	FIN=`expr $LINEAS - $3 + 1`
 	cat $FICHERO | tail -n +$INICIO | head -n -$FIN 2>/dev/null >salida
 	FICHERO=./salida	
 	CONT=$INICIO

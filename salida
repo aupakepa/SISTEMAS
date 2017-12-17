@@ -1,3 +1,4 @@
+#Uso del test -s para comprobar que se encuentran elementos con find
 #Se buscara el elemento introducido como parametro posicional y se indicara si existe alguno o no
 if [ $# -eq 0 ]
 then
