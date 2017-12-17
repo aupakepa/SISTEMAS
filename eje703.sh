@@ -7,20 +7,20 @@
 FICHERO=$1
 LINEAS=`cat $1 | wc -l`
 
-if [ $2 -z ]
+if [ -z $2 ]
 then
 	INICIO=1
 else
 	INICIO=$2
 fi
-if [ $3 -z ]
+if [ -z $3 ]
 then
 	FIN=$LINEAS
 else
 	FIN=$3
 fi
 
-if [ $FIN -lt $INCIO ]
+if [ $FIN -lt $INICIO ]
 then
 	echo error el parametro 3 es menor que el dos
 	exit 3
